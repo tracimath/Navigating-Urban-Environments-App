@@ -1,0 +1,378 @@
+Tee-Ar Pl-Franklin Ave
+Franklin Ave-Grover Ave
+Snowden Ln-Franklin Ave
+Fitzrandolph Rd-Western Way
+Broadmead St-Western Way
+Butler Ave-Marshall Ave
+Hartley Ave-McCosh Cir
+Stockton St-Campbelton Rd
+N Harrison St-Mershon Dr
+Cameron Ct-Mershon Dr
+Gordon Way-Mershon Dr
+S Harrison St-Southern Way
+Cedar Ln-Southern Way
+Wheatsheaf Ln-Snowden Ln
+Springdale Rd-Oppenheimer Ln
+Mercer St-Nassau St
+Mercer St-Alexander St
+Mercer St-Library Pl
+Mercer St-Edgehill St
+Hibben Rd-Mercer St
+Mercer St-Springdale Rd
+State Rd-Mountain Ave
+State Rd-Valley Rd
+Witherspoon St-Shirley Ct
+Nassau St-Chestnut St
+Chestnut St-Spruce St
+Chestnut St-Hamilton Ave
+Palmer Sq E-Palmer Sq S
+N Stanworth Dr-Bayard Ln
+Stanworth Ln-N Stanworth Dr
+E Stanworth Dr-N Stanworth Dr
+Prospect Ave-Fitzrandolph Rd
+Western Way-Fitzrandolph Rd
+Hartley Ave-Fitzrandolph Rd
+Robert Rd-Forester Dr
+Prospect Ave-Forester Dr
+Hamilton Ave-Stanley Ave
+Stanley Ave-Fisher Ave
+Erdman Ave-Stanley Ave
+Murray Pl-Patton Ave
+Patton Ave-Princeton Ave
+Harrison St-Patton Ave
+Patton Ave-Markham Rd
+Wilton St-Patton Ave
+Cedar Ln-Patton Ave
+Palmer Sq-Palmer Sq S
+Palmer Sq-Palmer Sq S
+Palmer Sq W-Palmer Sq S
+Nassau St-Markham Rd
+Sergeant St-Markham Rd
+Pelham St-Markham Rd
+Palmer Sq W-Hulfish St
+Hartley Ave-McCosh Cir
+S Harrison St-Lake Ln
+Bayard Ln-S Stanworth Dr
+Stanworth Ln-S Stanworth Dr
+S Stanworth Dr-E Stanworth Dr
+Locust Ln-Lincoln Hwy
+Moore St-Guyot Ave
+Guyot Ave-Linden Ln
+Ewing St-Guyot Ave
+Witherspoon St-Guyot Ave
+Carnahan Pl-Guyot Ave
+Lincoln Hwy-Poe Rd
+Hornor Ln-N Harrison St
+Hamilton Ave-Gordon Way
+Cedar Ln-Nassau St
+Prospect Ave-Cedar Ln
+Sycamore Rd-Cedar Ln
+Rollingmead St-Littlebrook Rd
+Paul Robeson Pl-Bayard Ln
+Bayard Ln-Paul Robeson Pl
+Bayard Ln-Hodge Rd
+Paul Robeson Pl-Chambers St
+Chambers St-Paul Robeson Pl
+John St-Chambers St
+Wiggins St-Paul Robeson Pl
+Stockton St-Elm Rd
+Elm Rd-Hodge Rd
+Rosedale Rd-Elm Rd
+Bainbridge St-Scott Ln
+Nassau St-Queenston Pl
+Battle Rd-Olden Ln
+Haslet Ave-Olden Ln
+Moore St-Hamilton Ave
+Linden Ln-Hamilton Ave
+N Harrison St-Hamilton Ave
+Harriet Dr-Hamilton Ave
+Hamilton Ave-Leavitt Ln
+Murray Pl-Aiken Ave
+Aiken Ave-Princeton Ave
+Spruce St-Spruce Ln
+Witherspoon St-Henry Ave
+Henry Ave-Carnahan Pl
+Harris Rd-Henry Ave
+Jefferson Rd-Henry Ave
+Moore St-Henry Ave
+Ewing St-Henry Ave
+Linden Ln-Henry Ave
+Devereux Ave-Harrison Ln
+Butler Ave-Harrison Ln
+Rollingmead St-Deer Path
+Washington Rd-William St
+William St-Charlton St
+William St-Firestone Ct
+William St-Olden St
+Jefferson Rd-Hawthorne Ave
+Moore St-Hawthorne Ave
+Walnut Ln-Hawthorne Ave
+Linden Ln-Hawthorne Ave
+Hawthorne Ave-N Harrison St
+Springdale Rd-Haslet Ave
+Lower Harrison St-Brunswick Pike
+Lower Harrison St-Logan Dr
+Lower Harrison St-S Harrison St
+Springdale Rd-Newlin Rd
+Dorann Ave-Tee-Ar Pl
+Springdale Rd-Battle Rd
+Einstein Dr-Battle Rd Cir
+Prince William Ct-Prospect Ave
+Lake Dr-Hartley Ave
+Bank St-Hulfish St
+Devereux Ave-Halsey St
+Halsey St-Butler Ave
+Snowden Ln-Nassau St
+University Pl-College Rd
+Dickinson St-University Pl
+Edwards Pl-University Pl
+University Pl-Nassau St
+Faculty Rd-Magie Apartment
+John St-Green St
+Quarry St-John St
+John St-Margerum Ct
+John St-Maclean St
+Lytle St-John St
+Clay St-John St
+Leigh Ave-John St
+John St-Birch Ave
+Nassau St-John St
+John St-Hulfish St
+Washington Rd-Tiger Ln
+None
+None
+None
+None
+Washington Rd-Faculty Rd
+Washington Rd-Faculty Rd
+None
+Washington Rd-Prospect Ave
+Springdale Rd-Ober Rd
+Bayard Ln-Stockton St
+Bayard Ln-Boudinot St
+Bayard Ln-Greenholm St
+Bayard Ln-Cleveland Ln
+Bayard Ln-Westcott Rd
+Bayard Ln-Leigh Ave
+Hartley Ave-Maclean Cir
+Maclean Cir-Hartley Ave
+Humbert St-Wiggins St
+Humbert St-Humbert Ln
+Humbert St-Greenview Ave
+Franklin Ave-Maple Ter
+Witherspoon St-Green St
+Prospect Ave-Princeton Ave
+Broadmead St-Western Way
+Hartley Ave-Broadmead St
+Faculty Rd-Hibben Ter
+Witherspoon St-Maclean St
+Butler Ave-Marshall Ave
+Butler Ave-King St
+Butler Ave-Eisenhower St
+Nassau St-Evelyn Pl
+Evelyn Pl-Nassau St
+Witherspoon St-Witherspoon Ln
+Charlton St-Nassau St
+Nassau St-Harriet Dr
+Maple St-Nassau St
+Spruce St-Maple St
+Witherspoon St-Clay St
+N Harrison St-Spruce Cir
+Erdman Ave-Tee-Ar Pl
+Clearview Ave-Tee-Ar Pl
+Nassau St-Witherspoon St
+Witherspoon St-Spring St
+Witherspoon St-Hulfish St
+Witherspoon St-Quarry St
+Franklin Ave-Witherspoon St
+Witherspoon St-Birch Ave
+Mt Lucas Rd-Valley Rd
+Nassau St-Princeton Ave
+Nassau St-Moore St
+Moore St-Park Pl
+Moore St-Willow St
+Moore St-Spruce St
+Moore St-Houghton Rd
+Franklin Ave-Moore St
+Jefferson Rd-Moore St
+Nassau St-Scott Ln
+Jefferson Rd-Terhune Rd
+Ivy Ln-Roper Ln
+Prospect Ave-Roper Ln
+Gordon Way-Cameron Ct
+Alexander St-Dickinson St
+College Rd-Alexander St
+Alexander St-West Dr
+N Harrison St-Spruce Cir
+Morven Pl-Boudinot St
+Morven Pl-Hodge Rd
+Sycamore Rd-S Harrison St
+Sycamore Rd-Balsam Ln
+Riverside Dr-Sycamore Rd
+Hartley Ave-S Harrison St
+Nassau St-Murray Pl
+Prospect Ave-Murray Pl
+Houghton Rd-Richard Ct
+Wiggins St-Greenview Ave
+Vandeventer Ave-Park Pl
+Madison St-Park Pl
+Park Pl-Madison St
+Leavitt Ln-Fisher Ave
+Erdman Ave-Leavitt Ln
+Greenholm St-Bayard Ln
+Nassau St-Wilton St
+Wilton St-Sergeant St
+Wilton St-Pelham St
+Quarry St-Berrien Ct
+Madison St-Wiggins St
+College Rd W-College Rd
+Springdale Rd-College Rd W
+Wiggins St-Jefferson Rd
+Jefferson Rd-Franklin Ave
+Jefferson Rd-Valley Rd
+Nassau St-Olden St
+Prospect Ave-Olden St
+Pine St-Spruce St
+Spruce St-Linden Ln
+Nassau St-Murray Pl
+Franklin Ave-Linden Ln
+Harrison St-Nassau St
+Harrison St-Sergeant St
+Pelham St-Harrison St
+Harrison St-Prospect Ave
+Hibben Rd-Stockton St
+Nassau St-Pine St
+Western Way-S Harrison St
+S Harrison St-Lake Dr
+Prospect Ave-Phillip Dr
+Spring St-S Tulane St
+S Tulane St-Lincoln Ct
+Nassau St-S Tulane St
+Spring St-N Tulane St
+N Tulane St-Wiggins St
+Library Pl-Boudinot St
+Lilac Ln-Hodge Rd
+Lilac Ln-Hodge Rd
+Hodge Rd-Library Pl
+Hodge Rd-Lafayette Rd
+Hodge Rd-Lafayette Rd
+Chambers St-Hulfish St
+Palmer Sq E-Hulfish St
+Walnut Ln-Houghton Rd
+King St-Devereux Ave
+Westcott Rd-Library Pl
+Leigh Ave-Race St
+Spring St-Vandeventer Ave
+Wiggins St-Vandeventer Ave
+Franklin Ave-Harris Rd
+Franklin Ave-Ewing St
+N Harrison St-Franklin Ave
+Balsam Ln-Riverside Dr
+Ewing St-N Harrison St
+N Harrison St-Clearview Ave
+Stockton St-Library Pl
+Edgehill St-Stockton St
+Robert Rd-Prospect Ave
+Springdale Rd-Weyl Ln
+Springdale Rd-Goldman Ln
+Cleveland Ln-Library Pl
+Cleveland Ln-Lafayette Rd
+College Rd-College Rd W
+Sturges Way-Riverside Dr
+Nassau St-Chambers St
+Devereux Ave-Marshall Ave
+Devereux Ave-Eisenhower St
+Nassau St-Palmer Sq
+Nassau St-Palmer Sq
+Nassau St-Princeton University
+Nassau St-Vandeventer Ave
+Nassau St-Moran Ave
+Prospect Ave-Woodside Ln
+Prospect Ave-Riverside Dr
+Riverside Dr-Prospect Ave
+Birch Ave-Race St
+Spruce St-Moran Ave
+Devereux Ave-Harrison Ln
+Devereux Ave-Harrison Ln
+None
+Western Way-Ivy Ln
+S Harrison St-Harrison St
+Hamilton Ave-Snowden Ln
+Lincoln Hwy-Riverside Dr
+Lincoln Hwy-Carnegie Dr
+Bayard Ln-State Rd
+Leigh Ave-Witherspoon St
+Guyot Ave-Walnut Ln
+Nassau St-Elm Dr
+Riverside Dr-Robert Rd
+Lower Harrison St-S Harrison St
+None
+Springdale Rd-West Dr
+University Pl-College Rd
+None
+None
+None
+University Pl-Alexander St
+Springdale St-Faculty Rd
+Faculty Rd-Springdale St
+University Pl-Edwards Pl
+Mercer St-Nassau St
+Nassau St-Peck Pl
+Washington Rd-Princeton University
+University Pl-Nassau St
+Bayard Ln-Birch Ave
+University Pl-Alexander St
+University Pl-Alexander St
+Alexander St-University Pl
+Alexander St-University Pl
+Alexander St-University Pl
+None
+None
+Springdale St-Faculty Rd
+Hartley Ave-S Harrison St
+None
+Lower Harrison St-S Harrison St
+Lower Harrison St-S Harrison St
+Springdale St-Princeton University
+Springdale Rd-Oppenheimer Ln
+Prospect Ave-Olden St
+Prospect Ave-Olden St
+None
+Walnut Ln-Franklin Ave
+Stockton St-Hibben Rd
+Walnut Ln-Franklin Ave
+Springdale St-Faculty Rd
+Faculty Rd-Alexander St
+Faculty Rd-Springdale St
+Faculty Rd-Springdale St
+Faculty Rd-Springdale St
+Springdale St-Faculty Rd
+Nassau St-Chambers St
+Faculty Rd-Magie Apartment
+S Harrison St-Butler Ave
+Olden St-William St
+University Pl-Dickinson St
+Faculty Rd-Springdale St
+Alexander St-University Pl
+Alexander St-University Pl
+Alexander St-University Pl
+University Pl-Alexander St
+Elm Dr-Springdale St
+Alexander St-University Pl
+Alexander St-University Pl
+University Pl-Alexander St
+Stanworth Ln-S Stanworth Dr
+Bayard Ln-Cleveland Ln
+Chambers St-Paul Robeson Pl
+Chambers St-Paul Robeson Pl
+Henry Ave-Carnahan Pl
+Witherspoon St-Birch Ave
+Franklin Ave-Maple Ter
+Franklin Ave-Harris Rd
+Witherspoon St-Birch Ave
+None
+None
+Fitzrandolph Rd-Faculty Rd
+Western Way-Ivy Ln
+Western Way-Ivy Ln
+Houghton Rd-Richard Ct

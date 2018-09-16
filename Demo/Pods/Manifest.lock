@@ -1,0 +1,25 @@
+PODS:
+  - Alamofire (4.7.2)
+  - AlamofireImage (3.3.1):
+    - Alamofire (~> 4.5)
+  - ARCL (1.0.3)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - AlamofireImage (~> 3.3)
+  - ARCL
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireImage
+    - ARCL
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  AlamofireImage: 3b35b586853abaf94ca1250f4e94cff3c21a4c0d
+  ARCL: a9db4b6d1e37772484cfff142ef1674720db3494
+
+PODFILE CHECKSUM: 3c30eb6f57818dbcc211ab403e80c67295f41dbd
+
+COCOAPODS: 1.5.3
