@@ -728,6 +728,11 @@ class MapViewController: UIViewController, FetchingDataDelegate {
                print("switch to AR view")
                self.dismiss(animated: true, completion: nil)
         case aqiButton:
+          
+          if (polygons.count == 0) {
+               return
+          }
+          
           print("aqi mode")
           
           aqiButton.backgroundColor = UIColor.black
@@ -783,7 +788,16 @@ class MapViewController: UIViewController, FetchingDataDelegate {
                mapView.addAnnotations(markersInView)
           }
           
+          toggleData.isEnabled = true
+          toggleMarkers.isEnabled = true
+          toggleTraffic.isEnabled = true
+          
         case humButton:
+          
+          if (polygons.count == 0) {
+               return
+          }
+          
           print("humidity mode")
           // let annotations = mapView.annotations
           
@@ -843,7 +857,15 @@ class MapViewController: UIViewController, FetchingDataDelegate {
 //                    marker.changeTitle(title: String("\(marker.airQuality!)"))
 //               }
 //          }
+          toggleData.isEnabled = true
+          toggleMarkers.isEnabled = true
+          toggleTraffic.isEnabled = true
         case tempButton:
+          
+          if (polygons.count == 0) {
+               return
+          }
+          
           print("temp mode")
           
           dataMode = "temp"
@@ -898,6 +920,11 @@ class MapViewController: UIViewController, FetchingDataDelegate {
           if markersOn {
             mapView.addAnnotations(markersInView)
           }
+          
+          toggleData.isEnabled = true
+          toggleMarkers.isEnabled = true
+          toggleTraffic.isEnabled = true
+          
         case toggleMarkers:
           if (markersOn) {
                // remove the markers
