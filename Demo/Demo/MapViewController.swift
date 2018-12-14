@@ -16,6 +16,8 @@ protocol MapViewDelegate {
 
 class MapViewController: UIViewController, FetchingDataDelegate {
      
+    @IBOutlet weak var switchData: UISegmentedControl!
+    
     // button for switching between the AR and Maps view
     @IBOutlet weak var switchView: UIButton!
      
@@ -107,28 +109,12 @@ class MapViewController: UIViewController, FetchingDataDelegate {
      
      let size = CGSize(width: 50.0, height: 50.0)
      
-     let tempImageScaled = tempImage!.af_imageAspectScaled(toFit: size)
-     let shadedTempImageScaled = shadedTempImage!.af_imageAspectScaled(toFit: size)
-     let humImageScaled = humImage!.af_imageAspectScaled(toFit: size)
-     let shadedHumImageScaled = shadedHumImage!.af_imageAspectScaled(toFit: size)
-     let aqiImageScaled = aqiImage!.af_imageAspectScaled(toFit: size)
-     let shadedAqiImageScaled = shadedAqiImage!.af_imageAspectScaled(toFit: size)
-     
      switchView.addTarget(self, action: #selector(self.tapButton(_:)), for: .touchUpInside)
-     aqiButton.addTarget(self, action: #selector(self.tapButton(_:)), for: .touchUpInside)
-     tempButton.addTarget(self, action: #selector(self.tapButton(_:)), for: .touchUpInside)
-     humButton.addTarget(self, action: #selector(self.tapButton(_:)), for: .touchUpInside)
      
      toggleMarkers.addTarget(self, action: #selector(self.tapButton(_:)), for: .touchUpInside)
      toggleData.addTarget(self, action: #selector(self.tapButton(_:)), for: .touchUpInside)
      toggleTraffic.addTarget(self, action: #selector(self.tapButton(_:)), for: .touchUpInside)
      
-     aqiButton.layer.borderWidth = 1
-     aqiButton.layer.borderColor = UIColor.black.cgColor
-     tempButton.layer.borderWidth = 1
-     tempButton.layer.borderColor = UIColor.black.cgColor
-     humButton.layer.borderWidth = 1
-     humButton.layer.borderColor = UIColor.black.cgColor
      toggleMarkers.layer.borderWidth = 1
      toggleMarkers.layer.borderColor = UIColor.black.cgColor
      toggleData.layer.borderWidth = 1
@@ -136,21 +122,19 @@ class MapViewController: UIViewController, FetchingDataDelegate {
      toggleTraffic.layer.borderWidth = 1
      toggleTraffic.layer.borderColor = UIColor.black.cgColor
      
-//     aqiButton.setImage(aqiImageScaled, for: .normal)
-//     tempButton.setImage(tempImageScaled, for: .normal)
-//     humButton.setImage(humImageScaled, for: .normal)
+     switchView.layer.cornerRadius = 8;
      
-    switchView.layer.cornerRadius = 8;
+     switchData.tintColor = UIColor.black
      
-    mapView.userTrackingMode = .follow
-    mapView.mapType = MKMapType.hybrid
-    mapView.isZoomEnabled = true
-    mapView.isScrollEnabled = true
-        
-    mapView.showsTraffic = true
-    
-    mapView.register(IntersectionMarkerView.self,
-                     forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+     mapView.userTrackingMode = .follow
+     mapView.mapType = MKMapType.hybrid
+     mapView.isZoomEnabled = true
+     mapView.isScrollEnabled = true
+     
+     mapView.showsTraffic = true
+     
+     mapView.register(IntersectionMarkerView.self,
+                          forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         
         if intersections.count == 0 {
             
@@ -235,15 +219,6 @@ class MapViewController: UIViewController, FetchingDataDelegate {
                 coordinates.append(intersection)
                 airQuality.append(dictionary.values.first!.airQuality!)
             }
-    
-//            // Call for coordinates A to B, then for B to C, and so on...
-//            for index in 0...coordinates.count-2 {
-//                let origin = coordinates[index]
-//                let destination = coordinates[index+1]
-//                dataHelper.getNavigation(originLat: origin.latitude, originLng: origin.longitude, destinLat: destination.latitude, destinLng: destination.longitude)
-//
-//                gradientColors = [getColor(airQuality: airQuality[index]), getColor(airQuality: airQuality[index+1])]
-//            }
     }
         else {
             for annotation in self.mapView.annotations {
@@ -599,6 +574,20 @@ class MapViewController: UIViewController, FetchingDataDelegate {
           
           let coordinate = CLLocationCoordinate2D(latitude: intersections[index].latitude, longitude: intersections[index].longitude)
           
+          let latitude = coordinate.latitude
+          let longitude = coordinate.longitude
+          
+          let north = 40.36558533
+          let south = 40.34480667
+          let east = -74.63986206
+          let west = -74.66738129
+          
+          // check if intersection is within bounds
+          if (latitude > north || latitude < south || longitude < west || longitude > east) {
+               continue
+          }
+     
+          
           var distance = Double.infinity
           
           var champion = 0
@@ -679,7 +668,179 @@ class MapViewController: UIViewController, FetchingDataDelegate {
           let AQIPM25Value = (I_high - I_low) * (C - C_low) / (C_high - C_low) + I_low
           return AQIPM25Value
      }
-     
+    
+    
+    @IBAction func dataSegmentSelected(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+            
+            case 0:
+                if (polygons.count == 0) {
+                    return
+                }
+                
+                dataMode = "aqi"
+                
+                lowerBound.removeFromSuperview()
+                upperBound.removeFromSuperview()
+                
+                lowerBound.text = " 0"
+                upperBound.text = "500"
+                
+                legend.addSubview(lowerBound)
+                legend.addSubview(upperBound)
+                
+                // update the gradient
+                
+                let gradientOverlay = mapView.overlays
+                mapView.removeOverlays(gradientOverlay)
+                
+                print(polygons.count)
+                
+                if (gradientOn == true && aqiColors.count != 0) {
+                    for i in 0...polygons.count-1 {
+                        currentFillColor = aqiColors[i]
+                        if (currentFillColor.alphaValue == 0) {
+                            continue
+                        }
+                        mapView.add(polygons[i])
+                    }
+                }
+                
+                // update the annotations
+                
+                let mapMarkers = mapView.annotations
+                mapView.removeAnnotations(mapMarkers)
+                
+                markersInView.removeAll()
+                
+                for annotation in annotations {
+                    if let mapMarker = annotation as? IntersectionMapMarker {
+                        mapMarker.mode = "aqi mode"
+                        markersInView.append(mapMarker)
+                    }
+                }
+                
+                if markersOn {
+                    mapView.addAnnotations(markersInView)
+                }
+                
+                toggleData.isEnabled = true
+                toggleMarkers.isEnabled = true
+                toggleTraffic.isEnabled = true
+                print("AQI")
+            case 1:
+                if (polygons.count == 0) {
+                    return
+                }
+                
+                print("humidity mode")
+                // let annotations = mapView.annotations
+                
+                dataMode = "hum"
+                
+                lowerBound.removeFromSuperview()
+                upperBound.removeFromSuperview()
+                
+                lowerBound.text = " 0%"
+                upperBound.text = "100%"
+                
+                legend.addSubview(lowerBound)
+                legend.addSubview(upperBound)
+                
+                // update the gradient
+                
+                let gradientOverlay = mapView.overlays
+                mapView.removeOverlays(gradientOverlay)
+                
+                if (gradientOn == true && humColors.count != 0) {
+                    for i in 0...polygons.count-1 {
+                        currentFillColor = humColors[i]
+                        if (currentFillColor.alphaValue == 0) {
+                            continue
+                        }
+                        mapView.add(polygons[i])
+                    }
+                }
+                
+                // update the markers
+                
+                let mapMarkers = mapView.annotations
+                mapView.removeAnnotations(mapMarkers)
+                
+                markersInView.removeAll()
+                
+                for annotation in annotations {
+                    if let mapMarker = annotation as? IntersectionMapMarker {
+                        mapMarker.mode = "hum mode"
+                        markersInView.append(mapMarker)
+                    }
+                }
+                
+                if markersOn {
+                    mapView.addAnnotations(markersInView)
+                }
+                
+                toggleData.isEnabled = true
+                toggleMarkers.isEnabled = true
+                toggleTraffic.isEnabled = true
+                print("Hum")
+            default:
+               if (polygons.count == 0) {
+                    return
+               }
+               
+               dataMode = "temp"
+               
+               // update the legend
+               lowerBound.removeFromSuperview()
+               upperBound.removeFromSuperview()
+               
+               lowerBound.text = " -20°F"
+               upperBound.text = "120°F"
+               
+               legend.addSubview(lowerBound)
+               legend.addSubview(upperBound)
+               
+               // update the gradient
+               
+               let gradientOverlay = mapView.overlays
+               mapView.removeOverlays(gradientOverlay)
+               
+               if (gradientOn == true && tempColors.count != 0) {
+                    for i in 0...polygons.count-1 {
+                         currentFillColor = tempColors[i]
+                         if (currentFillColor.alphaValue == 0) {
+                              continue
+                         }
+                         mapView.add(polygons[i])
+                    }
+               }
+               
+               // update the markers
+               
+               let mapMarkers = mapView.annotations
+               mapView.removeAnnotations(mapMarkers)
+               
+               markersInView.removeAll()
+               
+               for annotation in annotations {
+                    if let mapMarker = annotation as? IntersectionMapMarker {
+                         mapMarker.mode = "temp mode"
+                         markersInView.append(mapMarker)
+                    }
+               }
+               
+               if markersOn {
+                    mapView.addAnnotations(markersInView)
+               }
+               
+                toggleData.isEnabled = true
+                toggleMarkers.isEnabled = true
+                toggleTraffic.isEnabled = true
+                print("Temp")
+        }
+    }
+    
     @objc func tapButton(_ sender: UIButton) {
      
      if sender != switchView && gradientIsSet == false {
@@ -727,204 +888,7 @@ class MapViewController: UIViewController, FetchingDataDelegate {
                tempButton.tintColor = UIColor.black
                print("switch to AR view")
                self.dismiss(animated: true, completion: nil)
-        case aqiButton:
-          
-          if (polygons.count == 0) {
-               return
-          }
-          
-          print("aqi mode")
-          
-          aqiButton.backgroundColor = UIColor.black
-          aqiButton.tintColor = UIColor.white
-          humButton.backgroundColor = UIColor.white
-          humButton.tintColor = UIColor.black
-          tempButton.backgroundColor = UIColor.white
-          tempButton.tintColor = UIColor.black
-          
-          dataMode = "aqi"
-          
-          lowerBound.removeFromSuperview()
-          upperBound.removeFromSuperview()
-          
-          lowerBound.text = " 0"
-          upperBound.text = "500"
-          
-          legend.addSubview(lowerBound)
-          legend.addSubview(upperBound)
-          
-          // update the gradient
-          
-          let gradientOverlay = mapView.overlays
-          mapView.removeOverlays(gradientOverlay)
-     
-          print(polygons.count)
-          
-          if (gradientOn == true && aqiColors.count != 0) {
-               for i in 0...polygons.count-1 {
-                    currentFillColor = aqiColors[i]
-                    if (currentFillColor.alphaValue == 0) {
-                         continue
-                    }
-                    mapView.add(polygons[i])
-               }
-          }
-          
-          // update the annotations
-          
-          let mapMarkers = mapView.annotations
-          mapView.removeAnnotations(mapMarkers)
-          
-          markersInView.removeAll()
-          
-          for annotation in annotations {
-               if let mapMarker = annotation as? IntersectionMapMarker {
-                    mapMarker.mode = "aqi mode"
-                    markersInView.append(mapMarker)
-               }
-          }
-          
-          if markersOn {
-               mapView.addAnnotations(markersInView)
-          }
-          
-          toggleData.isEnabled = true
-          toggleMarkers.isEnabled = true
-          toggleTraffic.isEnabled = true
-          
-        case humButton:
-          
-          if (polygons.count == 0) {
-               return
-          }
-          
-          print("humidity mode")
-          // let annotations = mapView.annotations
-          
-          aqiButton.backgroundColor = UIColor.white
-          aqiButton.tintColor = UIColor.black
-          humButton.backgroundColor = UIColor.black
-          humButton.tintColor = UIColor.white
-          tempButton.backgroundColor = UIColor.white
-          tempButton.tintColor = UIColor.black
-          
-          dataMode = "hum"
-          
-          lowerBound.removeFromSuperview()
-          upperBound.removeFromSuperview()
-          
-          lowerBound.text = " 0%"
-          upperBound.text = "100%"
-          
-          legend.addSubview(lowerBound)
-          legend.addSubview(upperBound)
-          
-          // update the gradient
-          
-          let gradientOverlay = mapView.overlays
-          mapView.removeOverlays(gradientOverlay)
-          
-          if (gradientOn == true && humColors.count != 0) {
-               for i in 0...polygons.count-1 {
-                    currentFillColor = humColors[i]
-                    if (currentFillColor.alphaValue == 0) {
-                         continue
-                    }
-                    mapView.add(polygons[i])
-               }
-          }
-          
-          // update the markers
-          
-          let mapMarkers = mapView.annotations
-          mapView.removeAnnotations(mapMarkers)
-          
-          markersInView.removeAll()
-          
-          for annotation in annotations {
-               if let mapMarker = annotation as? IntersectionMapMarker {
-                    mapMarker.mode = "hum mode"
-                    markersInView.append(mapMarker)
-               }
-          }
-          
-          if markersOn {
-               mapView.addAnnotations(markersInView)
-          }
-          
-//          for annotation in annotations {
-//               if let marker = annotation as? IntersectionMapMarker {
-//                    marker.changeTitle(title: String("\(marker.airQuality!)"))
-//               }
-//          }
-          toggleData.isEnabled = true
-          toggleMarkers.isEnabled = true
-          toggleTraffic.isEnabled = true
-        case tempButton:
-          
-          if (polygons.count == 0) {
-               return
-          }
-          
-          print("temp mode")
-          
-          dataMode = "temp"
-          
-          aqiButton.backgroundColor = UIColor.white
-          aqiButton.tintColor = UIColor.black
-          humButton.backgroundColor = UIColor.white
-          humButton.tintColor = UIColor.black
-          tempButton.backgroundColor = UIColor.black
-          tempButton.tintColor = UIColor.white
-          
-          
-          // update the legend
-          lowerBound.removeFromSuperview()
-          upperBound.removeFromSuperview()
-          
-          lowerBound.text = " -20°F"
-          upperBound.text = "120°F"
-          
-          legend.addSubview(lowerBound)
-          legend.addSubview(upperBound)
-          
-          // update the gradient
-          
-          let gradientOverlay = mapView.overlays
-          mapView.removeOverlays(gradientOverlay)
-          
-          if (gradientOn == true && tempColors.count != 0) {
-               for i in 0...polygons.count-1 {
-                    currentFillColor = tempColors[i]
-                    if (currentFillColor.alphaValue == 0) {
-                         continue
-                    }
-                    mapView.add(polygons[i])
-               }
-          }
-          
-          // update the markers
-          
-          let mapMarkers = mapView.annotations
-          mapView.removeAnnotations(mapMarkers)
-          
-          markersInView.removeAll()
-          
-          for annotation in annotations {
-               if let mapMarker = annotation as? IntersectionMapMarker {
-                    mapMarker.mode = "temp mode"
-                    markersInView.append(mapMarker)
-               }
-          }
-          
-          if markersOn {
-            mapView.addAnnotations(markersInView)
-          }
-          
-          toggleData.isEnabled = true
-          toggleMarkers.isEnabled = true
-          toggleTraffic.isEnabled = true
-          
+        
         case toggleMarkers:
           if (markersOn) {
                // remove the markers
@@ -1018,14 +982,6 @@ class ImageOverlayRenderer : MKOverlayRenderer {
         UIGraphicsPopContext()
     }
 }
-
-//        for (_, intersection) in dictionary {
-//            if intersection.distance != nil, intersection.distance != nil, intersection.airQuality != nil, intersection.humidity != nil, intersection.temperature != nil {
-//                // need to update the locationName so that it's not always "Princeton"
-//                let mapMarker = IntersectionMapMarker(title: intersection.name!, locationName: "Princeton", coordinate: intersection.coordinate!, distance: intersection.distance!, airQuality: intersection.airQuality!, humidity: intersection.humidity!, temperature: intersection.temperature!)
-//                    mapView.addAnnotation(mapMarker)
-//            }
-//        }
 
 extension MapViewController: MKMapViewDelegate {
 

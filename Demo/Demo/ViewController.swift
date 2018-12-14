@@ -18,6 +18,8 @@ import ReplayKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate, RPPreviewViewControllerDelegate, MapViewDelegate {
     
+    
+    
     // dictionary of intersections with intersection coordinates as key and Intersection object as value
     var dictionary: [String: Intersection] = [:]
     
@@ -89,6 +91,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, RPPreviewView
     var locationManager: CLLocationManager!
     var sceneLocationView = SceneLocationView()
     let dataHelper = FetchingDataHelper()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -24,7 +24,7 @@
 		F940871F20FE8F9800A60177 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F940871E20FE8F9800A60177 /* WebViewController.swift */; };
 		F9443D6C2100D43C00EA22F1 /* intersection_names.txt in Resources */ = {isa = PBXBuildFile; fileRef = F9443D6B2100D43B00EA22F1 /* intersection_names.txt */; };
 		F94A6A1E20CEDB570034BCE7 /* FetchingDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F94A6A1D20CEDB570034BCE7 /* FetchingDataHelper.swift */; };
-		F99C4F02210660F000C23E4D /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = F99C4F01210660EF00C23E4D /* information.png */; };
+		F950ADCC219F5D5E00CE1ED5 /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = F950ADCB219F5D5E00CE1ED5 /* information.png */; };
 		F9B5BD7C20DC3F7300BBF4F0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9B5BD7B20DC3F7300BBF4F0 /* Images.xcassets */; };
 		F9EBCDA120C9BAD400E44CC0 /* Intersection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9EBCDA020C9BAD300E44CC0 /* Intersection.swift */; };
 /* End PBXBuildFile section */
@@ -64,7 +64,7 @@
 		F940871E20FE8F9800A60177 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = SOURCE_ROOT; };
 		F9443D6B2100D43B00EA22F1 /* intersection_names.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = intersection_names.txt; sourceTree = "<group>"; };
 		F94A6A1D20CEDB570034BCE7 /* FetchingDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchingDataHelper.swift; sourceTree = "<group>"; };
-		F99C4F01210660EF00C23E4D /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = information.png; path = ../../information.png; sourceTree = "<group>"; };
+		F950ADCB219F5D5E00CE1ED5 /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
 		F9B5BD7B20DC3F7300BBF4F0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F9EBCDA020C9BAD300E44CC0 /* Intersection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intersection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,10 +118,10 @@
 				F91C283F20DDD2E800016774 /* MapViewController.swift */,
 				F93FBF2E20F532C3006D2A67 /* JLTGradientPathRenderer.swift */,
 				F9443D6B2100D43B00EA22F1 /* intersection_names.txt */,
+				F950ADCB219F5D5E00CE1ED5 /* information.png */,
 				F940871420FCE72A00A60177 /* princeton_intersections.txt */,
 				F91C284520E144B000016774 /* IntersectionMarkerView.swift */,
 				F93DDA2120EBB04E0093392A /* IntersectionMapMarker.swift */,
-				F99C4F01210660EF00C23E4D /* information.png */,
 				F940871A20FE8F1100A60177 /* WebViewController.xib */,
 				F940871E20FE8F9800A60177 /* WebViewController.swift */,
 				F91C284120DDD2EB00016774 /* MapViewController.xib */,
@@ -204,10 +204,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F99C4F02210660F000C23E4D /* information.png in Resources */,
 				F9443D6C2100D43C00EA22F1 /* intersection_names.txt in Resources */,
 				F93B41EA20C5CC2400FF5173 /* LaunchScreen.storyboard in Resources */,
 				F91C284220DDD2EB00016774 /* MapViewController.xib in Resources */,
+				F950ADCC219F5D5E00CE1ED5 /* information.png in Resources */,
 				F940871B20FE8F1100A60177 /* WebViewController.xib in Resources */,
 				F93B41E720C5CC2400FF5173 /* Assets.xcassets in Resources */,
 				F940871520FCE72A00A60177 /* princeton_intersections.txt in Resources */,

@@ -6,19 +6,16 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="Demo" customModuleProvider="target">
             <connections>
-                <outlet property="aqiButton" destination="jlk-Hh-V6L" id="W8r-Z8-8Fe"/>
-                <outlet property="humButton" destination="PCJ-Nx-7lE" id="Edy-Z0-Zas"/>
                 <outlet property="legend" destination="nlp-TU-51i" id="bVu-1T-dWe"/>
                 <outlet property="mapView" destination="L0P-vJ-nUD" id="VHD-F1-EWN"/>
+                <outlet property="switchData" destination="uLq-oF-PIj" id="ULb-bu-JMS"/>
                 <outlet property="switchView" destination="5SE-HH-amX" id="8ZK-gj-HJy"/>
-                <outlet property="tempButton" destination="u7f-sL-EHy" id="4mt-T2-YPV"/>
                 <outlet property="toggleData" destination="CJj-Bg-ZEO" id="t9n-XB-ckC"/>
                 <outlet property="toggleMarkers" destination="BdE-Xt-iAg" id="xjc-Nb-70a"/>
                 <outlet property="toggleTraffic" destination="CNJ-Nn-kic" id="DBH-XR-1aj"/>
@@ -33,66 +30,60 @@
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="T8h-Ec-iUj">
                     <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Wcy-iZ-0P3">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HUa-Uf-au0">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="28"/>
                             <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="uLq-oF-PIj">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
+                                    <segments>
+                                        <segment title="AQI"/>
+                                        <segment title="Hum"/>
+                                        <segment title="Temp"/>
+                                    </segments>
+                                    <connections>
+                                        <action selector="dataSegmentSelected:" destination="-1" eventType="valueChanged" id="lbR-ac-vPB"/>
+                                    </connections>
+                                </segmentedControl>
+                            </subviews>
+                        </stackView>
+                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="L0P-vJ-nUD">
+                            <rect key="frame" x="0.0" y="28" width="320" height="470"/>
+                            <viewLayoutGuide key="safeArea" id="Fp8-wO-gCt"/>
+                        </mapView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nlp-TU-51i">
+                            <rect key="frame" x="0.0" y="498" width="320" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="Ueb-oO-Eph"/>
+                            </constraints>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Wcy-iZ-0P3">
+                            <rect key="frame" x="0.0" y="518" width="320" height="30"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5SE-HH-amX">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="30"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="AR View">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdE-Xt-iAg">
-                                    <rect key="frame" x="0.0" y="0.0" width="106.5" height="30"/>
+                                    <rect key="frame" x="80" y="0.0" width="80" height="30"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Markers"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CJj-Bg-ZEO">
-                                    <rect key="frame" x="106.5" y="0.0" width="107" height="30"/>
+                                    <rect key="frame" x="160" y="0.0" width="80" height="30"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Data"/>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNJ-Nn-kic">
-                                    <rect key="frame" x="213.5" y="0.0" width="106.5" height="30"/>
+                                    <rect key="frame" x="240" y="0.0" width="80" height="30"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <state key="normal" title="Traffic"/>
                                 </button>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HUa-Uf-au0">
-                            <rect key="frame" x="0.0" y="30" width="320" height="30"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlk-Hh-V6L">
-                                    <rect key="frame" x="0.0" y="0.0" width="106.5" height="30"/>
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="AQI"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PCJ-Nx-7lE">
-                                    <rect key="frame" x="106.5" y="0.0" width="107" height="30"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="Hum"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7f-sL-EHy">
-                                    <rect key="frame" x="213.5" y="0.0" width="106.5" height="30"/>
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <state key="normal" title="Temp"/>
-                                </button>
-                            </subviews>
-                        </stackView>
-                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="L0P-vJ-nUD">
-                            <rect key="frame" x="0.0" y="60" width="320" height="439"/>
-                            <viewLayoutGuide key="safeArea" id="Fp8-wO-gCt"/>
-                        </mapView>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nlp-TU-51i">
-                            <rect key="frame" x="0.0" y="499" width="320" height="20"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="20" id="Ueb-oO-Eph"/>
-                            </constraints>
-                        </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5SE-HH-amX">
-                            <rect key="frame" x="0.0" y="519" width="320" height="29"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <state key="normal" title="AR View"/>
-                        </button>
                     </subviews>
-                    <constraints>
-                        <constraint firstItem="L0P-vJ-nUD" firstAttribute="height" secondItem="5SE-HH-amX" secondAttribute="height" multiplier="15" id="Q4i-1M-rfL"/>
-                    </constraints>
                     <viewLayoutGuide key="safeArea" id="h6s-ug-ktM"/>
                 </stackView>
             </subviews>
