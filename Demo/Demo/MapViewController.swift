@@ -115,6 +115,8 @@ class MapViewController: UIViewController, FetchingDataDelegate {
      toggleData.addTarget(self, action: #selector(self.tapButton(_:)), for: .touchUpInside)
      toggleTraffic.addTarget(self, action: #selector(self.tapButton(_:)), for: .touchUpInside)
      
+//     switchData.setBackgroundImage(tempImage, for: UIControlState(rawValue: 2), barMetrics: UIBarMetrics(rawValue: 0)!)\
+
      toggleMarkers.layer.borderWidth = 1
      toggleMarkers.layer.borderColor = UIColor.black.cgColor
      toggleData.layer.borderWidth = 1
@@ -122,9 +124,9 @@ class MapViewController: UIViewController, FetchingDataDelegate {
      toggleTraffic.layer.borderWidth = 1
      toggleTraffic.layer.borderColor = UIColor.black.cgColor
      
-     switchView.layer.cornerRadius = 8;
-     
      switchData.tintColor = UIColor.black
+     switchView.layer.borderWidth = 1
+     switchView.layer.borderColor = UIColor.black.cgColor
      
      mapView.userTrackingMode = .follow
      mapView.mapType = MKMapType.hybrid
@@ -853,6 +855,8 @@ class MapViewController: UIViewController, FetchingDataDelegate {
           gradient.startPoint = CGPoint(x: 0.0, y: 0.0)
           gradient.endPoint = CGPoint(x: 1.0, y: 0.0)
           
+          legend.backgroundColor = UIColor(white: 1, alpha: 0.0)
+          
           legend.layer.insertSublayer(gradient, at: 0)
           
           legend.addSubview(lowerBound)
@@ -880,12 +884,6 @@ class MapViewController: UIViewController, FetchingDataDelegate {
                self.mapView.removeOverlays(mapView.overlays)
                markersOn = false
                gradientOn = false
-               aqiButton.backgroundColor = UIColor.white
-               aqiButton.tintColor = UIColor.black
-               humButton.backgroundColor = UIColor.white
-               humButton.tintColor = UIColor.black
-               tempButton.backgroundColor = UIColor.white
-               tempButton.tintColor = UIColor.black
                print("switch to AR view")
                self.dismiss(animated: true, completion: nil)
         
